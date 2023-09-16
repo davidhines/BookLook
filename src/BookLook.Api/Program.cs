@@ -1,5 +1,4 @@
 using BookLook.Application;
-using BookLook.Domain;
 using BookLook.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
