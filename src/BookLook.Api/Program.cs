@@ -16,6 +16,9 @@ builder.Services
     .AddApplication()
     .AddInfrastructure();
 
+// Add mappings
+builder.Services.AddAutoMapper(typeof(Program));
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

@@ -7,6 +7,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="12.0.1" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
   </ItemGroup>
 
@@ -14,10 +16,6 @@
     <ProjectReference Include="..\BookLook.Application\BookLook.Application.csproj" />
     <ProjectReference Include="..\BookLook.Domain\BookLook.Domain.csproj" />
     <ProjectReference Include="..\Domain.Infrastructure\BookLook.Infrastructure.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Controllers\" />
   </ItemGroup>
 
 </Project>
