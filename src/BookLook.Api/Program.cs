@@ -14,10 +14,8 @@ builder.Services.AddSwaggerGen();
 
 // Add layers
 builder.Services
-    .AddDomain()
     .AddApplication()
     .AddInfrastructure();
-
 
 var app = builder.Build();
 
