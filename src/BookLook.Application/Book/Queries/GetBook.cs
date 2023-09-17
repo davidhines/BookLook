@@ -16,10 +16,10 @@ namespace BookLook.Application.Book.Queries
 
         internal sealed class GetBookHandler : IRequestHandler<GetBook, BookDto>
         {
-            private readonly IInMemoryBookRepository _bookRepository;
+            private readonly IRepositoryAsync<Domain.Book.Book> _bookRepository;
             private readonly IMapper _mapper;
 
-            public GetBookHandler(IInMemoryBookRepository bookRepository, IMapper mapper)
+            public GetBookHandler(IRepositoryAsync<Domain.Book.Book> bookRepository, IMapper mapper)
             {
                 _bookRepository = bookRepository;
                 _mapper = mapper;
@@ -27,7 +27,7 @@ namespace BookLook.Application.Book.Queries
 
             public async Task<BookDto> Handle(GetBook request, CancellationToken cancellationToken)
             {
-                var book = await _bookRepository.GetAsync(request.Id, cancellationToken);
+                var book = await _bookRepository.GetByIdAsync(request.Id, cancellationToken);
                 return _mapper.Map<BookDto>(book);
             }
         }

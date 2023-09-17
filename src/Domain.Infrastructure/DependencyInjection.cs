@@ -1,4 +1,5 @@
-﻿using BookLook.Infrastructure.Repository;
+﻿using BookLook.Domain.Book;
+using BookLook.Infrastructure.Repository;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace BookLook.Infrastructure
@@ -7,7 +8,7 @@ namespace BookLook.Infrastructure
     {
         public static IServiceCollection AddInfrastructure(this IServiceCollection services)
         {
-            services.AddScoped<IInMemoryBookRepository, InMemoryBookRepository>();
+            services.AddScoped<IRepositoryAsync<Book>, InMemoryBookRepository>();
 
             return services;
         }
