@@ -1,4 +1,5 @@
 using BookLook.Application;
+using BookLook.Application.Services;
 using BookLook.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -27,6 +28,15 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+// Add embedded resource books to in memory book repository
+var bookParserService = app
+    .Services
+    .GetRequiredService<BookParserService>();
+
+bookParserService
+    .ParseEmbeddedBooksAsync()
+    .Wait();
 
 app.UseHttpsRedirection();
 

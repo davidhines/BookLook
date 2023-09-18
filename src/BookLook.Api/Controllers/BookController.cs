@@ -16,7 +16,7 @@ namespace BookLook.Api.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<IActionResult> GetBookById(int id)
+        public async Task<IActionResult> GetBookById(Guid id)
         {
             var result = await _mediator.Send(new GetBook(id));
 

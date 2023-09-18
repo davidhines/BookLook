@@ -1,16 +1,13 @@
 ﻿using BookLook.Domain.Book;
-using System.Linq.Expressions;
 
 namespace BookLook.Infrastructure.Repository
 {
     public sealed class InMemoryBookRepository : IRepositoryAsync<Book>
     {
         private readonly List<Book> _books = new();
-        private int _primaryKey = 1;
 
         public Task AddAsync(Book book, CancellationToken cancellationToken)
         {
-            book.Id = _primaryKey++;
             _books.Add(book);
 
             return Task.CompletedTask;
@@ -22,7 +19,7 @@ namespace BookLook.Infrastructure.Repository
             return Task.FromResult(books);
         }
 
-        public Task<Book> GetByIdAsync(int id, CancellationToken cancellationToken)
+        public Task<Book> GetByIdAsync(Guid id, CancellationToken cancellationToken)
         {
             var book = _books.FirstOrDefault(book => book.Id == id);
             return Task.FromResult(book);
@@ -50,7 +47,8 @@ namespace BookLook.Infrastructure.Repository
 
             if (book != null)
             {
-                _books[entity.Id] = entity;
+                book.Author = entity.Author;
+                book.Title = entity.Title;
             }
             
             return Task.CompletedTask;

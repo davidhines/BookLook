@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using BookLook.Application.Services;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace BookLook.Application
 {
@@ -9,6 +10,8 @@ namespace BookLook.Application
             var assembly = typeof(DependencyInjection).Assembly;
             
             services.AddMediatR(configuration => configuration.RegisterServicesFromAssemblies(assembly));
+            services.AddTransient<BookParserService>();
+
             return services;
         }
     }

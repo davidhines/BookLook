@@ -7,9 +7,9 @@ namespace BookLook.Application.Book.Queries
 {
     public sealed class GetBook : IRequest<BookDto>
     {
-        public int Id { get; set; }
+        public Guid Id { get; set; }
 
-        public GetBook(int id)
+        public GetBook(Guid id)
         {
             Id = id;
         }

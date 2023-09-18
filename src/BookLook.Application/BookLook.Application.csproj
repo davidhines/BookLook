@@ -7,6 +7,16 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="EmbeddedResources\A Tale of Two Cities - Charles Dickens.txt" />
+    <None Remove="EmbeddedResources\Alices Adventures in Wonderland - Lewis Carroll.txt" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="EmbeddedResources\A Tale of Two Cities - Charles Dickens.txt" />
+    <EmbeddedResource Include="EmbeddedResources\Alices Adventures in Wonderland - Lewis Carroll.txt" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="AutoMapper" Version="12.0.1" />
     <PackageReference Include="MediatR" Version="12.1.1" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="7.0.0" />
